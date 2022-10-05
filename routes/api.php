@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KoordinatController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
  */
 Route::post('/koordinat', [KoordinatController::class, 'index']);
 Route::post('/login', [LoginController::class, 'index']);
+Route::post('/logout', [LogoutController::class, 'index']);
