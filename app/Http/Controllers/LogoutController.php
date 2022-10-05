@@ -19,7 +19,7 @@ class LogoutController extends Controller
 
     if ($validator->passes()) {
       $data = new Kehadiran();
-      $data->anggota_id = $param['anggotaId'];
+      $data->anggota_id = 2;
       $data->status = 'out';
       $data->save();
 
