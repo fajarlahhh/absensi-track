@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
   @livewireStyles
 </head>
 
@@ -61,10 +62,10 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/gallery.html" class="nav-link">
-                <i class="nav-icon far fa-image"></i>
+              <a href="/pelacakan" class="nav-link">
+                <i class="nav-icon far fa-map"></i>
                 <p>
-                  Gallery
+                  Pelacakan
                 </p>
               </a>
             </li>
@@ -99,6 +100,13 @@
   <script src="{{ asset('plugins/sparklines/sparkline.js') }}"></script>
   <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
   <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+  <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+  <script>
+    $(function() {
+      $('.select2').select2()
+    })
+  </script>
+  @stack('scripts')
 </body>
 
 </html>

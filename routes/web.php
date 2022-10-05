@@ -19,4 +19,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/', \App\Http\Livewire\Dataanggota\Index::class);
     Route::get('/tambah', \App\Http\Livewire\Dataanggota\Form::class);
   });
+  Route::get('/pelacakan', \App\Http\Livewire\Lacak::class);
 });
