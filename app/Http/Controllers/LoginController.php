@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anggota;
+use App\Models\Kehadiran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -18,13 +19,19 @@ class LoginController extends Controller
     $validator = Validator::make($param, $rules);
 
     if ($validator->passes()) {
-      $data = Anggota::where('uid', $param['uid'])->first();
+      $anggota = Anggota::where('uid', $param['uid'])->first();
+
+      $data = new Kehadiran();
+      $data->anggota_id = $anggota->getKey();
+      $data->status = 'in';
+      $data->save();
+
       return response()->json([
         'code' => 200,
         'status' => 'success',
         'data' => [
-          'id' => $data->getKey(),
-          'nama' => $data->nama,
+          'id' => $anggota->getKey(),
+          'nama' => $anggota->nama,
         ],
       ], 200);
     } else {
