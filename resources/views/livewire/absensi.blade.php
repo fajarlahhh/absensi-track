@@ -21,8 +21,7 @@
         <div class="card">
           <div class="card-header">
             <div class="input-group date" id="reservationdate" data-target-input="nearest" data-toggle="datetimepicker">
-              <input type="text" readonly class="form-control datetimepicker-input" data-target="#reservationdate"
-                wire.model="tanggal" />
+              <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" />
               <div class="input-group-append" data-target="#reservationdate">
                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
               </div>
@@ -58,8 +57,7 @@
     <script>
       $('#reservationdate').datetimepicker({
         defaultDate: "{{ $tanggal }}",
-        format: 'YYYY-MM-DD',
-        ignoreReadonly: true
+        format: 'YYYY-MM-DD'
       });
 
       $("#reservationdate").on("change.datetimepicker", ({
@@ -67,7 +65,7 @@
         oldDate
       }) => {
         window.livewire.emit('settanggal', date.format('YYYY-MM-DD'));
-      })
+      });
     </script>
   @endpush
 </div>
