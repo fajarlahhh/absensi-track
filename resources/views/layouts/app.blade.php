@@ -62,6 +62,14 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="/absensi" class="nav-link">
+                <i class="nav-icon  far fa-calendar-check"></i>
+                <p>
+                  Absensi
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="/pelacakan" class="nav-link">
                 <i class="nav-icon far fa-map"></i>
                 <p>

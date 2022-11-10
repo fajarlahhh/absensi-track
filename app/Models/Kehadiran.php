@@ -10,4 +10,9 @@ class Kehadiran extends Model
   use HasFactory;
 
   protected $table = 'kehadiran';
+
+  public function anggota()
+  {
+    return $this->belongsTo(Anggota::class);
+  }
 }
