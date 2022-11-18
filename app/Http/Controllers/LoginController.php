@@ -15,6 +15,7 @@ class LoginController extends Controller
     $param = $req->json()->all();
     $rules = [
       'uid' => 'required',
+      'waktu' => 'required',
     ];
     $validator = Validator::make($param, $rules);
 
@@ -23,6 +24,7 @@ class LoginController extends Controller
 
       $data = new Kehadiran();
       $data->anggota_id = $anggota->getKey();
+      $data->waktu = $req->waktu;
       $data->status = 'in';
       $data->save();
 
