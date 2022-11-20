@@ -12,31 +12,36 @@ class KoordinatController extends Controller
 
   public function index(Request $req)
   {
-    $param = $req->json()->all();
-    $rules = [
+    $validator = Validator::make($req->all(), [
       'anggotaId' => 'required',
       'long' => 'required',
       'lat' => 'required',
-    ];
-    $validator = Validator::make($param, $rules);
+    ]);
+    if ($validator->fails()) {
+      return response()->json([
+        'code' => 400,
+        'status' => 'failed',
+        'data' => $validator->messages(),
+      ]);
+    }
 
-    if ($validator->passes()) {
+    try {
       $data = new Pelacakan();
-      $data->anggota_id = $param['anggotaId'];
-      $data->long = $param['long'];
-      $data->lat = $param['lat'];
+      $data->anggota_id = $req->anggotaId;
+      $data->long = $req->long;
+      $data->lat = $req->lat;
       $data->save();
 
       return response()->json([
         'code' => 200,
         'status' => 'success',
-        'data' => [],
+        'data' => null,
       ]);
-    } else {
+    } catch (\Exception$e) {
       return response()->json([
-        'code' => 200,
-        'status' => 'success',
-        'data' => $validator->errors()->all(),
+        'code' => 400,
+        'status' => 'failed',
+        'data' => $e->getMessage(),
       ]);
     }
   }
