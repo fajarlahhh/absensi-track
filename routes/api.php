@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
  */
-Route::post('/koordinat', [KoordinatController::class, 'index']);
-Route::post('/login', [LoginController::class, 'index']);
-Route::post('/logout', [LogoutController::class, 'index']);
+Route::middleware(['cors'])->post('/koordinat', [KoordinatController::class, 'input']);
+Route::middleware(['cors'])->post('/login', [LoginController::class, 'index']);
+Route::middleware(['cors'])->post('/logout', [LogoutController::class, 'index']);

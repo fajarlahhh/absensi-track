@@ -10,7 +10,7 @@ class KoordinatController extends Controller
 {
   //
 
-  public function index(Request $req)
+  public function input(Request $req)
   {
     $validator = Validator::make($req->all(), [
       'anggotaId' => 'required',
